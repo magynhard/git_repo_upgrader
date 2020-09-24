@@ -1,6 +1,7 @@
 require 'date'
 require 'colorize'
 require 'pathname'
+require 'tmpdir'
 
 require 'git_repo_upgrader/version'
 
@@ -28,7 +29,7 @@ require 'git_repo_upgrader/version'
 #
 #
 
-class GitRepoUpgrader
+module GitRepoUpgrader
 
   TMP_DIR_PREFIX = 'GitRepoUpgrader_'
   PROJECT_DIR = Dir.pwd

@@ -108,14 +108,19 @@ class GitRepoUpgrader
     end
     if yes_no == 'y'
       Dir.chdir PROJECT_DIR
-      git_commit_command = %Q(git commit "#{files.values.join('" "')}" -m "upgrade #{repo_name}")
-      puts "   #{git_commit_command}".blue
-      git_result = `#{git_commit_command}`
-      if git_result.include? 'no changes added to commit'
+      # add
+      git_commit_command1 = %Q(git add "#{files.values.join('" "')}")
+      puts "   #{git_commit_command1}".blue
+      git_result1 = `#{git_commit_command1}`
+      # commit
+      git_commit_command2 = %Q(git commit "#{files.values.join('" "')}" -m "upgrade #{repo_name}")
+      puts "   #{git_commit_command2}".blue
+      git_result2 = `#{git_commit_command2}`
+      if git_result2.include? 'no changes added to commit'
         puts
         puts "   You already had the latest version, nothing to commit!".red
       else
-        puts git_result.green
+        puts git_result2.green
       end
     end
   end

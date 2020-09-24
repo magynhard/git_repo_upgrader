@@ -62,10 +62,16 @@ module GitRepoUpgrader
     print tmp_dirname + ' ... '
     Dir.chdir tmp_dirname
     puts 'done'.green
-    puts ' - checkout repository ' + source + " (#{branch}) ... "
-    git_command = "git clone --single-branch --branch #{branch} #{source}"
-    puts '   ' + git_command.blue
-    system git_command
+    begin
+      puts ' - checkoutA repository ' + source + " (#{branch}) ... "
+      git_command = "git clone --single-branch --branch #{branch} #{source}"
+      puts '   ' + git_command.blue
+      git_result = system(git_command)
+      raise "invalid username or password" unless git_result
+    rescue RuntimeError => e
+      puts e.to_s.red
+      retry
+    end
     puts '   done'.green
     puts
     repo_dir = Dir['*'].first

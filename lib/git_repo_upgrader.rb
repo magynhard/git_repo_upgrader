@@ -87,7 +87,9 @@ module GitRepoUpgrader
       final_dest = PROJECT_DIR + '/' + dest
       # remove last folder from path, because FileUtils.cp_r creates the last folder in dest implicitly
       final_dest = final_dest[0...-1] if final_dest.end_with? '/' # cut / at the end if available
-      final_dest = Pathname(final_dest).dirname.to_s # cut last folder
+      if (File.basename(source) == File.basename(dest))
+        final_dest = Pathname(final_dest).dirname.to_s # cut last folder if identical names are used to avoid duplicates
+      end
       FileUtils.cp_r(repo_dir + '/' + source, final_dest)
     end
   end

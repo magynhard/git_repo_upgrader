@@ -1,6 +1,9 @@
 # git_repo_upgrader
+![Gem](https://img.shields.io/gem/v/git_repo_upgrader?_color=default&style=plastic&logo=ruby&logoColor=red)
+![Gem](https://img.shields.io/gem/dt/git_repo_upgrader?color=blue&style=plastic)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gold.svg?style=plastic&logo=mit)](LICENSE)
 
-Copy specific files from another git repository into your current project and provide (optional) automatic commits.
+> Copy specific files from another git repository into your current project and provide (optional) automatic commits.
 
 Useful for manually integrated files from another git project. Do upgrades by one command.
 

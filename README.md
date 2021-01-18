@@ -8,7 +8,7 @@
 Useful for manually integrated files from another git project. Do upgrades by one command.
 
 ```diff
-- early alpha version
+- early version, not to be meant for production use
 ```
 
 # Contents

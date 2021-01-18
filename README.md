@@ -7,6 +7,10 @@
 
 Useful for manually integrated files from another git project. Do upgrades by one command.
 
+```diff
+- early alpha version
+```
+
 # Contents
 
 * [Installation](#installation)
@@ -53,7 +57,7 @@ TODO
 
 At best create a new rake task containing a options hash and then run #upgrade.
 
-See the examples below for option hahes.
+See the examples below for option hashes.
 
 ### Examples
 
